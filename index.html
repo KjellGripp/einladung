@@ -2,16 +2,155 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>Hintergrund</title>
+<title>Glennie & Kjell – Hochzeitseinladung</title>
 <style>
   body {
-    margin: 0;
+    font-family: "Cormorant Garamond", serif;
     background: url('hochzeit.png') no-repeat center center fixed;
     background-size: cover;
+    margin: 0;
     min-height: 100vh;
+    color: #F0EAD6;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 40px 0;
+
   }
+  .karte {
+    max-width: 650px;
+    margin: auto;
+    background: rgba(46, 10, 18, 0.90);
+    border: 2px solid #b48a4a;
+    border-radius: 20px;
+    padding: 35px 45px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  }
+  h1 {
+    text-align: center;
+    font-family: "Great Vibes", cursive;
+    font-size: 58px;
+    margin-bottom: 5px;
+    color: #FDB813;
+  }
+  h2 {
+    text-align: center;
+    margin-top: 0;
+    font-weight: 300;
+    font-size: 22px;
+  }
+  h3 {
+    color: #FDB813;
+    margin-bottom: 10px;
+  }
+  .abschnitt {
+    margin: 30px 0;
+  }
+  label {
+    display: block;
+    margin-bottom: 12px;
+  }
+  input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #b48a4a;
+    background: #f7f2e9;
+  }
+  input[type="radio"] {
+    margin-right: 8px;
+  }
+  .essen-option {
+    margin-bottom: 8px;
+  }
+  button {
+    background: #F0EAD6;
+    color: #21060C;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+    margin: 25px auto 0;
+    transition: 0.2s;
+  }
+  button:hover {
+    background: transparent;
+    color: #F0EAD6;
+    border: 2px solid #F0EAD6;
+  }
+  
+  /* Kein Video-Hintergrund mehr */
 </style>
 </head>
 <body>
+
+<div class="karte">
+  <form id="rsvp-form" action="https://formspree.io/f/mkgkroqo" method="POST">
+  <h1>Glennie & Kjell</h1>
+  <h2>Hochzeitseinladung</h2>
+
+  <p style="text-align:center; margin-top: 20px; font-size: 18px;">
+    Wir freuen uns sehr, dich zu unserem besonderen Tag einzuladen.
+  </p>
+
+  <div class="abschnitt">
+    <h3>🧑‍🤝‍🧑 Bitte trage deinen Namen ein</h3>
+    <label>
+      Dein Name:
+      <input type="text" name="name" placeholder="Vor- und Nachname" required>
+    </label>
+  </div>
+
+  <div class="abschnitt">
+    <h3>🍽️ Menüauswahl</h3>
+    <div class="essen-option"><label><input type="radio" name="essen" value="Fleisch"> Fleischmenü</label></div>
+    <div class="essen-option"><label><input type="radio" name="essen" value="Vegan"> Veganes Menü</label></div>
+    <div class="essen-option"><label><input type="radio" name="essen" value="Vegetarisch"> Vegetarisches Menü</label></div>
+    <div class="essen-option"><label><input type="radio" name="essen" value="Kinder"> Kindermenü</label></div>
+  </div>
+
+  <div class="abschnitt">
+    <h3>📩 Teilnahme</h3>
+    <label><input type="radio" name="teilnahme" value="Ja"> Ich nehme teil</label>
+    <label><input type="radio" name="teilnahme" value="Nein"> Ich kann leider nicht kommen</label>
+  </div>
+
+      <p id="form-status" style="text-align:center; margin-top:10px; font-size:14px;"></p>
+
+  <button type="submit">Antwort abschicken</button>
+    </form>
+</div>
+<script>
+  const form = document.getElementById('rsvp-form');
+  const statusEl = document.getElementById('form-status');
+
+  form.addEventListener('submit', async function (event) {
+    event.preventDefault();
+    statusEl.textContent = 'Sende deine Antwort...';
+
+    const data = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        statusEl.textContent = 'Danke! Deine Antwort wurde erfolgreich gesendet.';
+        form.reset();
+      } else {
+        statusEl.textContent = 'Ups, da ist etwas schiefgelaufen. Bitte versuche es später erneut.';
+      }
+    } catch (error) {
+      statusEl.textContent = 'Verbindungsfehler. Bitte überprüfe deine Internetverbindung und versuche es nochmal.';
+    }
+  });
+</script>
 </body>
 </html>
