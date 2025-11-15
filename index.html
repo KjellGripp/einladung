@@ -6,10 +6,16 @@
 <style>
   body {
     font-family: "Cormorant Garamond", serif;
-    background: url('hochzeit.png') no-repeat center center fixed; 
+    background: url('wedding-bg.jpg') no-repeat center center fixed;
     background-size: cover;
-    padding: 40px;
+    margin: 0;
+    min-height: 100vh;
     color: #F0EAD6;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 40px 0;
+
   }
   .karte {
     max-width: 650px;
@@ -77,7 +83,7 @@
     border: 2px solid #F0EAD6;
   }
   
-  /* Falls du später wieder einen Video-Hintergrund nutzen willst */
+  /* Video-Hintergrund */
   #bgvid {
     position: fixed;
     top: 0;
@@ -123,12 +129,11 @@
     <label><input type="radio" name="teilnahme" value="Nein"> Ich kann leider nicht kommen</label>
   </div>
 
-  <p id="form-status" style="text-align:center; margin-top:10px; font-size:14px;"></p>
+      <p id="form-status" style="text-align:center; margin-top:10px; font-size:14px;"></p>
 
   <button type="submit">Antwort abschicken</button>
     </form>
 </div>
-
 <script>
   const form = document.getElementById('rsvp-form');
   const statusEl = document.getElementById('form-status');
@@ -157,6 +162,5 @@
     }
   });
 </script>
-
 </body>
 </html>
