@@ -79,7 +79,7 @@
 </head>
 <body>
 <div class="karte">
-  <form action="https://formspree.io/f/mkgkroqo" method="POST">
+  <form id="rsvp-form" action="https://formspree.io/f/mkgkroqo" method="POST">
   <h1>Glennie & Kjell</h1>
   <h2>Hochzeitseinladung</h2>
 
@@ -109,8 +109,38 @@
     <label><input type="radio" name="teilnahme" value="Nein"> Ich kann leider nicht kommen</label>
   </div>
 
-    <button type="submit">Antwort abschicken</button>
+      <p id="form-status" style="text-align:center; margin-top:10px; font-size:14px;"></p>
+
+  <button type="submit">Antwort abschicken</button>
     </form>
 </div>
+<script>
+  const form = document.getElementById('rsvp-form');
+  const statusEl = document.getElementById('form-status');
+
+  form.addEventListener('submit', async function (event) {
+    event.preventDefault();
+    statusEl.textContent = 'Sende deine Antwort...';
+
+    const data = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        statusEl.textContent = 'Danke! Deine Antwort wurde erfolgreich gesendet.';
+        form.reset();
+      } else {
+        statusEl.textContent = 'Ups, da ist etwas schiefgelaufen. Bitte versuche es später erneut.';
+      }
+    } catch (error) {
+      statusEl.textContent = 'Verbindungsfehler. Bitte überprüfe deine Internetverbindung und versuche es nochmal.';
+    }
+  });
+</script>
 </body>
 </html>
