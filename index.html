@@ -1,27 +1,43 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Glennie & Kjell – Hochzeitseinladung</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glennie & Kjell | Hochzeitseinladung</title>
+
+  <!-- Tailwind (für Layout, Abstände etc., läuft auch so auf GitHub Pages) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quattrocento&display=swap" rel="stylesheet">
+
   <style>
     body {
-      font-family: "Cormorant Garamond", serif;
-      background: #21060C;
-      padding: 40px;
+      background-color: #21060C; /* dunkles Bordeaux */
       margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Quattrocento", serif;
       color: #F0EAD6;
-      box-sizing: border-box;
     }
+
     .karte {
       max-width: 650px;
-      margin: auto;
+      width: 100%;
+      margin: 20px;
       background: #2e0a12;
       border: 2px solid #b48a4a;
       border-radius: 20px;
       padding: 35px 45px;
       box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      position: relative;
+      overflow: hidden;
     }
+
     h1 {
       text-align: center;
       font-family: "Great Vibes", cursive;
@@ -29,23 +45,28 @@
       margin-bottom: 5px;
       color: #FDB813;
     }
+
     h2 {
       text-align: center;
       margin-top: 0;
       font-weight: 300;
       font-size: 22px;
     }
+
     h3 {
       color: #FDB813;
       margin-bottom: 10px;
     }
+
     .abschnitt {
       margin: 30px 0;
     }
+
     label {
       display: block;
       margin-bottom: 12px;
     }
+
     input[type="text"] {
       width: 100%;
       padding: 12px;
@@ -55,18 +76,21 @@
       background: #f7f2e9;
       box-sizing: border-box;
     }
+
     input[type="radio"] {
       margin-right: 8px;
     }
+
     .essen-option {
       margin-bottom: 8px;
     }
+
     button {
       background: #F0EAD6;
       color: #21060C;
       border: none;
       padding: 12px 20px;
-      border-radius: 25px;
+      border-radius: 9999px;
       font-size: 18px;
       font-weight: bold;
       cursor: pointer;
@@ -74,6 +98,7 @@
       margin: 25px auto 0;
       transition: 0.2s;
     }
+
     button:hover {
       background: transparent;
       color: #F0EAD6;
@@ -120,7 +145,7 @@
       <label><input type="radio" name="teilnahme" value="Nein"> Ich kann leider nicht kommen</label>
     </div>
 
-    <button>Antwort abschicken</button>
+    <button type="button">Antwort abschicken</button>
   </div>
 </body>
 </html>
