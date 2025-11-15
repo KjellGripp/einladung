@@ -22,8 +22,7 @@
 
     body {
       font-family: "Cormorant Garamond", serif;
-      background: url('tester.png') no-repeat center center fixed;
-      background-size: cover;
+      background: none;
       margin: 0;
       min-height: 100vh;
       color: var(--eggshell);
@@ -31,6 +30,20 @@
       align-items: center;
       justify-content: center;
       padding: 40px 10px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Hintergrundvideo */
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      filter: brightness(0.5);
     }
 
     main {
@@ -92,26 +105,25 @@
       opacity: 0.85;
     }
 
-    /* NEUE Version mit Bild */
+    /* Bild der Ringe */
     .ring-icon {
       margin: 24px 0;
       display: flex;
       justify-content: center;
     }
 
-  .ring-icon img {
-  width: 130px;
-  height: auto;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-  transition: none;
-}
-
+    .ring-icon img {
+      width: 130px;
+      height: auto;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      transition: none;
+    }
 
     .ring-icon img:hover {
-       transform: none;
-  box-shadow: none;
+      transform: none;
+      box-shadow: none;
     }
 
     .ticket-section {
@@ -225,6 +237,11 @@
   </style>
 </head>
 <body>
+
+  <!-- Hintergrundvideo -->
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="livebg.mp4" type="video/mp4">
+  </video>
 
 <main>
   <div class="ticket">
