@@ -34,7 +34,7 @@
       overflow: hidden;
     }
 
-    /* Hintergrundvideo */
+    /* Hintergrundvideo (Standard/Desktop) */
     #bg-video {
       position: fixed;
       top: 0;
@@ -231,7 +231,21 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* --- MOBILE OPTIMIERUNG --- */
+    /* --- MOBILE OPTIMIERUNG HINTERGRUNDVIDEO: 90° drehen & Bildschirm füllen --- */
+    @media (max-width: 768px) {
+      #bg-video {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 100vh;   /* getauscht wegen Rotation */
+        height: 100vw;
+        object-fit: cover;
+        transform: translate(-50%, -50%) rotate(90deg);
+        transform-origin: center center;
+      }
+    }
+
+    /* --- MOBILE OPTIMIERUNG INHALT --- */
     @media (max-width: 768px) {
       body {
         padding: 20px 8px;
