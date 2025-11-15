@@ -43,7 +43,7 @@
     display: block;
     margin-bottom: 12px;
   }
-  input[type="text"] {
+  input[type="text"], textarea {
     width: 100%;
     padding: 12px;
     margin-top: 5px;
@@ -79,41 +79,65 @@
 </head>
 <body>
 <div class="karte">
-  <form id="rsvp-form" action="https://formspree.io/f/mkgkroqo" method="POST">
+
   <h1>Glennie & Kjell</h1>
   <h2>Hochzeitseinladung</h2>
 
-  <p style="text-align:center; margin-top: 20px; font-size: 18px;">
-    Wir freuen uns sehr, dich zu unserem besonderen Tag einzuladen.
-  </p>
+  <form id="rsvp-form" action="https://formspree.io/f/mkgkroqo" method="POST">
 
-  <div class="abschnitt">
-    <h3>🧑‍🤝‍🧑 Bitte trage deinen Namen ein</h3>
-    <label>
-      Dein Name:
-      <input type="text" name="name" placeholder="Vor- und Nachname" required>
-    </label>
-  </div>
+    <p style="text-align:center; margin-top: 20px; font-size: 18px;">
+      Wir freuen uns sehr, dich zu unserem besonderen Tag einzuladen.
+    </p>
 
-  <div class="abschnitt">
-    <h3>🍽️ Menüauswahl</h3>
-    <div class="essen-option"><label><input type="radio" name="essen" value="Fleisch"> Fleischmenü</label></div>
-    <div class="essen-option"><label><input type="radio" name="essen" value="Vegan"> Veganes Menü</label></div>
-    <div class="essen-option"><label><input type="radio" name="essen" value="Vegetarisch"> Vegetarisches Menü</label></div>
-    <div class="essen-option"><label><input type="radio" name="essen" value="Kinder"> Kindermenü</label></div>
-  </div>
+    <!-- NAMENSFELD MIT AUTOCOMPLETE -->
+    <div class="abschnitt">
+      <h3>🧑‍🤝‍🧑 Bitte trage deinen Namen ein</h3>
 
-  <div class="abschnitt">
-    <h3>📩 Teilnahme</h3>
-    <label><input type="radio" name="teilnahme" value="Ja"> Ich nehme teil</label>
-    <label><input type="radio" name="teilnahme" value="Nein"> Ich kann leider nicht kommen</label>
-  </div>
+      <label>
+        Dein Name:
+        <input list="namenListe" type="text" name="name" placeholder="Vor- und Nachname" required>
+      </label>
 
-      <p id="form-status" style="text-align:center; margin-top:10px; font-size:14px;"></p>
+      <datalist id="namenListe">
+        <option value="Anna Berger">
+        <option value="Jonas Klein">
+        <option value="Marlon Weber">
+        <option value="Sophie Hartmann">
+        <option value="Leon Richter">
+        <option value="Kim Schneider">
+        <option value="David Braun">
+        <option value="Lara Hoffmann">
+        <option value="Nico Schulze">
+        <option value="Emily König">
+      </datalist>
 
-  <button type="submit">Antwort abschicken</button>
-    </form>
+    </div>
+
+    <!-- MENÜAUSWAHL -->
+    <div class="abschnitt">
+      <h3>🍽️ Menüauswahl</h3>
+      <div class="essen-option"><label><input type="radio" name="essen" value="Fleisch" required> Fleischmenü</label></div>
+      <div class="essen-option"><label><input type="radio" name="essen" value="Vegan"> Veganes Menü</label></div>
+      <div class="essen-option"><label><input type="radio" name="essen" value="Vegetarisch"> Vegetarisches Menü</label></div>
+      <div class="essen-option"><label><input type="radio" name="essen" value="Kinder"> Kindermenü</label></div>
+    </div>
+
+    <!-- TEILNAHME -->
+    <div class="abschnitt">
+      <h3>📩 Teilnahme</h3>
+      <label><input type="radio" name="teilnahme" value="Ja" required> Ich nehme teil</label>
+      <label><input type="radio" name="teilnahme" value="Nein"> Ich kann leider nicht kommen</label>
+    </div>
+
+    <!-- STATUSAUSGABE -->
+    <p id="form-status" style="text-align:center; margin-top:10px; font-size:14px;"></p>
+
+    <button type="submit">Antwort abschicken</button>
+
+  </form>
 </div>
+
+<!-- SENDESCRIPT -->
 <script>
   const form = document.getElementById('rsvp-form');
   const statusEl = document.getElementById('form-status');
@@ -138,9 +162,10 @@
         statusEl.textContent = 'Ups, da ist etwas schiefgelaufen. Bitte versuche es später erneut.';
       }
     } catch (error) {
-      statusEl.textContent = 'Verbindungsfehler. Bitte überprüfe deine Internetverbindung und versuche es nochmal.';
+      statusEl.textContent = 'Verbindungsfehler. Bitte versuche es erneut.';
     }
   });
 </script>
+
 </body>
 </html>
