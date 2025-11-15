@@ -115,7 +115,6 @@
       font-size: 16px;
     }
 
-    /* zentrierter Block für Datum/Ort */
     .info-grid {
       display: flex;
       justify-content: center;
@@ -144,8 +143,7 @@
       font-size: 15px;
     }
 
-    input[type="text"],
-    textarea {
+    input[type="text"] {
       width: 100%;
       padding: 10px 12px;
       border-radius: 9px;
@@ -154,11 +152,6 @@
       color: var(--eggshell);
       font-family: inherit;
       font-size: 15px;
-    }
-
-    textarea {
-      min-height: 70px;
-      resize: vertical;
     }
 
     input[type="radio"] {
@@ -325,12 +318,9 @@
             <label><input type="radio" name="unterkunft" value="nicht dabei"> leider gar nicht</label>
           </div>
 
-          <h3>Notizen (Allergien, Besonderheiten)</h3>
-          <textarea name="notizen" placeholder="z.B. Allergien, vegane Wünsche, Kinder mitbringen ..."></textarea>
-
           <div class="button-row">
             <button type="submit" class="btn-main">
-              Zusage senden
+              Senden
             </button>
             <button type="button" class="btn-main" data-goto="ablauf">
               Weiter zum Ablauf
