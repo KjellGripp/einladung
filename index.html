@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glennie & Kjell | Hochzeitseinladung</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quattrocento&display=swap" rel="stylesheet">
+    <style>
+      body {
+        background-color: #21060C; /* even darker bordeaux */
+      }
+      .text-gold-shiny {
+        color: #FDB813;
+      }
+
+      @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      
+      @keyframes pulse {
+        0%, 100% { opacity: 0.15; }
+        50% { opacity: 0.05; }
+      }
+
+      .mandala {
+        position: absolute;
+        animation: spin 120s linear infinite, pulse 20s ease-in-out infinite;
+        will-change: transform, opacity;
+      }
+      
+      .btn-eggshell {
+        background-color: #F0EAD6; /* eggshell */
+        color: #21060C; /* bordeaux */
+        font-weight: 600;
+        padding: 0.5rem 1.5rem;
+        border-radius: 9999px; /* pill shape */
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+        border: 1px solid #F0EAD6;
+      }
+
+      .btn-eggshell:hover {
+          background-color: transparent;
+          color: #F0EAD6;
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              'cursive': ['Great Vibes', 'cursive'],
+              'sans': ['Quattrocento', 'sans-serif'],
+            },
+            colors: {
+              'eggshell': '#F0EAD6',
+              'bordeaux': '#21060C',
+              'gold': '#B8860B', // A slightly darker, richer gold for better contrast
+            }
+          }
+        }
+      }
+    </script>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>
