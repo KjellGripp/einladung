@@ -34,16 +34,18 @@
       overflow: hidden;
     }
 
-    /* Hintergrundvideo (Standard/Desktop) */
+    /* Hintergrundvideo – Desktop und Mobile vollflächig */
     #bg-video {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 50%;
+      left: 50%;
+      width: 100vw;
+      height: 100vh;
       object-fit: cover;
+      transform: translate(-50%, -50%);
       z-index: -1;
       filter: brightness(0.9);
+      background-color: black; /* falls Video kurz nicht geladen ist */
     }
 
     main {
@@ -105,7 +107,6 @@
       opacity: 0.85;
     }
 
-    /* Bild der Ringe */
     .ring-icon {
       margin: 24px 0;
       display: flex;
@@ -116,14 +117,8 @@
       width: 130px;
       height: auto;
       border: none;
-      border-radius: 0;
       box-shadow: none;
       transition: none;
-    }
-
-    .ring-icon img:hover {
-      transform: none;
-      box-shadow: none;
     }
 
     .ticket-section {
@@ -169,7 +164,6 @@
     }
 
     input[type="radio"] { margin-right: 8px; }
-
     .radio-group { margin-bottom: 8px; }
 
     .btn-main {
@@ -221,8 +215,6 @@
       .button-row { flex-direction: row; justify-content: center; }
     }
 
-    .status-text { margin-top: 12px; font-size: 14px; opacity: 0.9; }
-
     [data-view] { display: none; }
     [data-view].is-active { display: block; }
 
@@ -231,98 +223,28 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* --- MOBILE OPTIMIERUNG HINTERGRUNDVIDEO: 90° drehen & Bildschirm füllen --- */
+    /* --- MOBILE OPTIMIERUNG --- */
     @media (max-width: 768px) {
-      #bg-video {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        width: 100vh;   /* getauscht wegen Rotation */
-        height: 100vw;
-        object-fit: cover;
-        transform: translate(-50%, -50%) rotate(90deg);
-        transform-origin: center center;
-      }
+      body { padding: 20px 8px; }
+      .ticket { padding: 24px 18px 22px; border-radius: 20px; }
+      h1 { font-size: 42px; }
+      h2 { font-size: 18px; }
+      h3 { font-size: 17px; }
+      p, .info-value { font-size: 15px; }
+      .info-grid { flex-direction: column; gap: 16px; }
+      .btn-main { font-size: 15px; padding: 10px 20px; }
+      .ring-icon img { width: 100px; }
     }
 
-    /* --- MOBILE OPTIMIERUNG INHALT --- */
-    @media (max-width: 768px) {
-      body {
-        padding: 20px 8px;
-      }
-
-      .ticket {
-        padding: 24px 18px 22px;
-        border-radius: 20px;
-      }
-
-      h1 {
-        font-size: 42px;
-      }
-
-      h2 {
-        font-size: 18px;
-      }
-
-      h3 {
-        font-size: 17px;
-      }
-
-      p,
-      .info-value {
-        font-size: 15px;
-      }
-
-      .info-grid {
-        flex-direction: column;
-        gap: 16px;
-      }
-
-      .btn-main {
-        font-size: 15px;
-        padding: 10px 20px;
-      }
-
-      .ring-icon img {
-        width: 100px;
-      }
-    }
-
-    /* --- SEHR KLEINE HANDYDISPLAYS --- */
     @media (max-width: 480px) {
-      body {
-        padding: 16px 6px;
-      }
-
-      .ticket {
-        padding: 20px 15px;
-      }
-
-      h1 {
-        font-size: 34px;
-      }
-
-      h2 {
-        font-size: 16px;
-      }
-
-      h3 {
-        font-size: 16px;
-      }
-
-      p,
-      .info-value {
-        font-size: 14px;
-      }
-
-      .ring-icon img {
-        width: 80px;
-      }
-
-      .btn-main {
-        font-size: 14px;
-        padding: 8px 18px;
-      }
+      body { padding: 16px 6px; }
+      .ticket { padding: 20px 15px; }
+      h1 { font-size: 34px; }
+      h2 { font-size: 16px; }
+      h3 { font-size: 16px; }
+      p, .info-value { font-size: 14px; }
+      .ring-icon img { width: 80px; }
+      .btn-main { font-size: 14px; padding: 8px 18px; }
     }
   </style>
 </head>
@@ -333,144 +255,32 @@
     <source src="livebg.mp4" type="video/mp4">
   </video>
 
-<main>
-  <div class="ticket">
-    <div class="ticket-inner">
+  <main>
+    <div class="ticket">
+      <div class="ticket-inner">
 
-      <!-- VIEW 1: EINLADUNG -->
-      <section data-view="invitation" class="is-active">
-        <p class="subtitle-small">Festival Wedding</p>
-
-        <div style="display:flex; flex-direction:column; align-items:center; margin-top:10px;">
-          <h1>Glennie</h1>
-
-          <!-- Hier neues Ring-Bild -->
-          <div class="ring-icon">
-            <img src="ring.png" alt="Ringe">
+        <!-- VIEW 1 -->
+        <section data-view="invitation" class="is-active">
+          <p class="subtitle-small">Festival Wedding</p>
+          <div style="display:flex; flex-direction:column; align-items:center; margin-top:10px;">
+            <h1>Glennie</h1>
+            <div class="ring-icon"><img src="ring.png" alt="Ringe"></div>
+            <h1>Kjell</h1>
           </div>
-
-          <h1>Kjell</h1>
-        </div>
-
-        <h2 style="margin-top:24px;">laden euch herzlich zu unserem Hochzeitsfestival ein</h2>
-
-        <div class="ticket-section">
-          <div class="info-grid">
-            <div><div class="info-label">Datum</div><div class="info-value">26.06. – 28.06.2026</div></div>
-            <div><div class="info-label">Ort</div><div class="info-value">Surendorf</div></div>
+          <h2 style="margin-top:24px;">laden euch herzlich zu unserem Hochzeitsfestival ein</h2>
+          <div class="ticket-section">
+            <div class="info-grid">
+              <div><div class="info-label">Datum</div><div class="info-value">26.06. – 28.06.2026</div></div>
+              <div><div class="info-label">Ort</div><div class="info-value">Surendorf</div></div>
+            </div>
           </div>
-        </div>
+          <button class="btn-main" data-goto="rsvp">Ich bin dabei! <span>→</span></button>
+        </section>
 
-        <button class="btn-main" data-goto="rsvp">
-          Ich bin dabei! <span>→</span>
-        </button>
-      </section>
+        <!-- VIEW 2 -->
+        <section data-view="rsvp">
+          <h1>Wir freuen uns auf euch!</h1>
+          <h2>Bitte gebt uns Bescheid, ob ihr dabei sein könnt.</h2>
 
-      <!-- VIEW 2: RSVP -->
-      <section data-view="rsvp">
-        <h1>Wir freuen uns auf euch!</h1>
-        <h2>Bitte gebt uns Bescheid, ob ihr dabei sein könnt.</h2>
-
-        <form id="rsvp-form" action="https://formspree.io/f/mkgkroqo" method="POST" style="margin-top:24px; text-align:left;">
-          <label>
-            Name :
-            <input type="text" name="name" placeholder="Vor- und Nachname" required>
-          </label>
-
-          <h3>🏕 Ich komme:</h3>
-          <div class="radio-group"><label><input type="radio" name="unterkunft" value="mit Zelt" required> mit Zelt</label></div>
-          <div class="radio-group"><label><input type="radio" name="unterkunft" value="mit Camper"> mit Camper</label></div>
-          <div class="radio-group"><label><input type="radio" name="unterkunft" value="bei jemandem"> und habe einen Schlafplatz mit bei jemandem</label></div>
-          <div class="radio-group"><label><input type="radio" name="unterkunft" value="nicht dabei"> leider gar nicht</label></div>
-
-          <div class="button-row">
-            <button type="submit" class="btn-main">Senden</button>
-            <button type="button" class="btn-main" data-goto="ablauf">Weiter zum Ablauf</button>
-          </div>
-
-          <p id="form-status" class="status-text"></p>
-        </form>
-
-        <button class="btn-ghost" data-goto="invitation">← Zurück zur Einladung</button>
-      </section>
-
-      <!-- VIEW 3: ABLAUF -->
-      <section data-view="ablauf">
-        <h1>Festival Daten</h1>
-        <h2>Was euch an unserem Wochenende erwartet</h2>
-
-        <div class="ticket-section">
-          <div class="info-grid">
-            <div><div class="info-label">Location</div><div class="info-value">Surendorf</div></div>
-            <div><div class="info-label">Einlass</div><div class="info-value">16 Uhr</div></div>
-            <div><div class="info-label">Ankunft Brautpaar</div><div class="info-value">ca. 22:30 Uhr</div></div>
-            <div><div class="info-label">Musik</div><div class="info-value">23 Uhr</div></div>
-          </div>
-        </div>
-
-        <p style="margin-top:18px;">
-          Bringt gerne Campingstuff, gute Laune und eure liebsten Festival-Outfits mit.
-        </p>
-
-        <div class="button-row">
-          <button class="btn-main" data-goto="festivalmap">Weiter zur Festivalmap</button>
-          <button class="btn-main" data-goto="rsvp">Zurück zur Anmeldung</button>
-        </div>
-      </section>
-
-      <!-- VIEW 4: MAP -->
-      <section data-view="festivalmap">
-        <h1>Festivalmap</h1>
-        <h2>Hier findet ihr später Lageplan & Bereiche</h2>
-
-        <p style="margin-top:20px;">
-          Campingbereich, Dancefloor, Food-Area, Chillout-Zone und mehr – die Map folgt noch.
-        </p>
-
-        <div class="button-row">
-          <button class="btn-main" data-goto="danke">Anmeldung abschließen</button>
-          <button class="btn-main" data-goto="ablauf">Zurück zu den Festivaldaten</button>
-        </div>
-      </section>
-
-      <!-- VIEW 5: DANKE -->
-      <section data-view="danke">
-        <h1>Danke! 💛</h1>
-        <h2>Wir haben eure Rückmeldung erhalten.</h2>
-        <p style="margin-top:18px;">Wir freuen uns riesig darauf, mit euch unser Hochzeitsfestival zu feiern.</p>
-        <button class="btn-main" data-goto="invitation" style="margin-top:30px;">Zurück zur Einladung</button>
-      </section>
-
-    </div>
-  </div>
-</main>
-
-<script>
-  const sections = document.querySelectorAll('[data-view]');
-  function showView(view) {
-    sections.forEach(sec => sec.classList.toggle('is-active', sec.getAttribute('data-view') === view));
-  }
-  document.querySelectorAll('[data-goto]').forEach(btn =>
-    btn.addEventListener('click', () => showView(btn.getAttribute('data-goto')))
-  );
-
-  const form = document.getElementById('rsvp-form');
-  const statusEl = document.getElementById('form-status');
-  if (form) {
-    form.addEventListener('submit', async e => {
-      e.preventDefault();
-      statusEl.textContent = 'Sende deine Antwort...';
-      const data = new FormData(form);
-      try {
-        const response = await fetch(form.action, { method: form.method, body: data, headers: { 'Accept': 'application/json' } });
-        if (response.ok) { statusEl.textContent = 'Danke! Deine Antwort wurde erfolgreich gesendet.'; form.reset(); }
-        else { statusEl.textContent = 'Ups, etwas ist schiefgelaufen. Bitte versuche es später erneut.'; }
-      } catch {
-        statusEl.textContent = 'Verbindungsfehler. Bitte überprüfe deine Internetverbindung.';
-      }
-    });
-  }
-</script>
-
-</body>
-</html>
+          <form id="rsvp-form" action="https://formspree.io/f/mkgkroqo" method="POST" style="margin-top:24px; text-align:left;">
+            <label>Name: <input t
