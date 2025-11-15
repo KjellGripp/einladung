@@ -92,13 +92,24 @@
       opacity: 0.85;
     }
 
-    .ring-icon { margin: 18px 0; }
+    /* NEUE Version mit Bild */
+    .ring-icon {
+      margin: 24px 0;
+      display: flex;
+      justify-content: center;
+    }
 
-    .ring-icon svg {
-      width: 110px; height: 60px;
-      stroke: var(--gold);
-      stroke-width: 6;
-      fill: none;
+    .ring-icon img {
+      width: 130px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(251, 210, 131, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .ring-icon img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 35px rgba(251, 210, 131, 0.7);
     }
 
     .ticket-section {
@@ -223,12 +234,12 @@
 
         <div style="display:flex; flex-direction:column; align-items:center; margin-top:10px;">
           <h1>Glennie</h1>
+
+          <!-- Hier neues Ring-Bild -->
           <div class="ring-icon">
-            <svg viewBox="0 0 200 100" aria-hidden="true">
-              <circle cx="80" cy="50" r="28"></circle>
-              <circle cx="120" cy="50" r="28"></circle>
-            </svg>
+            <img src="ring.jpg" alt="Ringe">
           </div>
+
           <h1>Kjell</h1>
         </div>
 
