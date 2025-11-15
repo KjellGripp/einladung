@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Glennie & Kjell – Hochzeitseinladung</title>
 
-  <!-- Schriften im ähnlichen Stil wie im Festival-Ticket -->
+  <!-- Schriften -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
@@ -101,7 +101,6 @@
       margin: 18px 0;
     }
 
-    /* simple version des IntertwinedRingsIcon */
     .ring-icon svg {
       width: 110px;
       height: 60px;
@@ -116,7 +115,7 @@
       font-size: 16px;
     }
 
-    /* zentrierter Block für Datum/Ort usw. */
+    /* zentrierter Block für Datum/Ort */
     .info-grid {
       display: flex;
       justify-content: center;
@@ -224,7 +223,6 @@
       }
     }
 
-    /* auf sehr kleinen Screens Datum/Ort untereinander */
     @media (max-width: 480px) {
       .info-grid {
         flex-direction: column;
@@ -237,8 +235,6 @@
       font-size: 14px;
       opacity: 0.9;
     }
-
-    /* View Handling */
 
     [data-view] {
       display: none;
@@ -274,7 +270,6 @@
           <h1>Glennie</h1>
 
           <div class="ring-icon">
-            <!-- vereinfachtes Ringsymbol -->
             <svg viewBox="0 0 200 100" aria-hidden="true">
               <circle cx="80" cy="50" r="28"></circle>
               <circle cx="120" cy="50" r="28"></circle>
@@ -316,26 +311,18 @@
             <input type="text" name="name" placeholder="Vor- und Nachname" required>
           </label>
 
-          <h3>🍽 Menüauswahl</h3>
+          <h3>🏕 Ich komme:</h3>
           <div class="radio-group">
-            <label><input type="radio" name="essen" value="Fleisch" required> Fleischmenü</label>
+            <label><input type="radio" name="unterkunft" value="mit Zelt" required> mit Zelt</label>
           </div>
           <div class="radio-group">
-            <label><input type="radio" name="essen" value="Vegan"> Veganes Menü</label>
+            <label><input type="radio" name="unterkunft" value="mit Camper"> mit Camper</label>
           </div>
           <div class="radio-group">
-            <label><input type="radio" name="essen" value="Vegetarisch"> Vegetarisches Menü</label>
+            <label><input type="radio" name="unterkunft" value="bei jemandem"> und habe einen Schlafplatz mit bei jemandem</label>
           </div>
           <div class="radio-group">
-            <label><input type="radio" name="essen" value="Kinder"> Kindermenü</label>
-          </div>
-
-          <h3>📩 Teilnahme</h3>
-          <div class="radio-group">
-            <label><input type="radio" name="teilnahme" value="Ja" required> Ich nehme teil</label>
-          </div>
-          <div class="radio-group">
-            <label><input type="radio" name="teilnahme" value="Nein"> Ich kann leider nicht kommen</label>
+            <label><input type="radio" name="unterkunft" value="nicht dabei"> leider gar nicht</label>
           </div>
 
           <h3>Notizen (Allergien, Besonderheiten)</h3>
@@ -435,15 +422,11 @@
 </main>
 
 <script>
-  // View-Switching (ohne React)
+  // View-Switching
   const sections = document.querySelectorAll('[data-view]');
   function showView(view) {
     sections.forEach(sec => {
-      if (sec.getAttribute('data-view') === view) {
-        sec.classList.add('is-active');
-      } else {
-        sec.classList.remove('is-active');
-      }
+      sec.classList.toggle('is-active', sec.getAttribute('data-view') === view);
     });
   }
 
@@ -454,7 +437,7 @@
     });
   });
 
-  // Formspree-Handling mit Feedback
+  // Formspree-Handling
   const form = document.getElementById('rsvp-form');
   const statusEl = document.getElementById('form-status');
 
