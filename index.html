@@ -116,11 +116,14 @@
       font-size: 16px;
     }
 
+    /* zentrierter Block für Datum/Ort usw. */
     .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 10px 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
       margin-top: 10px;
+      text-align: center;
     }
 
     .info-label {
@@ -218,6 +221,14 @@
       .button-row {
         flex-direction: row;
         justify-content: center;
+      }
+    }
+
+    /* auf sehr kleinen Screens Datum/Ort untereinander */
+    @media (max-width: 480px) {
+      .info-grid {
+        flex-direction: column;
+        gap: 16px;
       }
     }
 
