@@ -352,41 +352,51 @@
         </button>
       </section>
 
-      <!-- VIEW 2: RSVP -->
      <!-- VIEW 2: RSVP -->
 <section data-view="rsvp">
   <h1>Wir freuen uns auf euch!</h1>
   <h2>Bitte gebt uns Bescheid, ob ihr dabei sein könnt.</h2>
 
-  <form id="rsvp-form" action="https://formspree.io/f/mkgkroqo" method="POST" style="margin-top:24px; text-align:left;">
-    
+  <form 
+    action="https://formspree.io/f/mreawqlp"
+    method="POST"
+    style="margin-top:24px; text-align:left;"
+  >
+
     <label>
       Name:
-      <input type="text" name="name" placeholder="Vor- und Nachname" required>
+      <input type="text" name="Name" placeholder="Vor- und Nachname" required>
+    </label>
+
+    <label>
+      E-Mail (optional):
+      <input type="email" name="Email" placeholder="deine@email.de">
     </label>
 
     <h3>Ich komme:</h3>
 
     <div class="radio-group">
       <label>
-        <input type="radio" name="zusage" value="Ja" required>
+        <input type="radio" name="Zusage" value="Ja, ich bin dabei" required>
         Ja, ich bin dabei
       </label>
     </div>
 
     <div class="radio-group">
       <label>
-        <input type="radio" name="zusage" value="Nein">
+        <input type="radio" name="Zusage" value="Leider nicht">
         Leider nicht
       </label>
     </div>
+
+    <!-- Betreff deiner E-Mail -->
+    <input type="hidden" name="_subject" value="Neue Hochzeits-Rückmeldung 💛">
 
     <div class="button-row">
       <button type="submit" class="btn-main">Senden</button>
       <button type="button" class="btn-main" data-goto="ablauf">Weiter zum Ablauf</button>
     </div>
 
-    <p id="form-status" class="status-text"></p>
   </form>
 
   <button class="btn-ghost" data-goto="invitation">← Zurück zur Einladung</button>
