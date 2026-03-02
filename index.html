@@ -461,20 +461,49 @@
 
 </section>
 
-      <!-- VIEW 4: MAP -->
-      <section data-view="festivalmap">
-        <h1>Festivalmap</h1>
-        <h2>Hier findet ihr später Lageplan & Bereiche</h2>
+      
+ <!-- VIEW 4: MAP -->
+<section data-view="festivalmap">
+  <h1>Festivalmap</h1>
+  <h2>Hier findet ihr unseren Standort</h2>
 
-        <p style="margin-top:20px;">
-          Campingbereich, Dancefloor, Food-Area, Chillout-Zone und mehr – die Map folgt noch.
-        </p>
+  <div style="margin-top:20px; text-align:center;">
 
-        <div class="button-row">
-          <button class="btn-main" data-goto="danke">Anmeldung abschließen</button>
-          <button class="btn-main" data-goto="ablauf">Zurück zu den Festivaldaten</button>
-        </div>
-      </section>
+    <p style="margin-bottom:18px;">
+      Unser Festival findet hier statt – ihr könnt euch den Standort direkt in der Karte anschauen.
+    </p>
+
+    <!-- Eingebettete Karte -->
+    <div style="border-radius:20px; overflow:hidden; box-shadow:0 15px 30px rgba(0,0,0,0.4);">
+      <iframe
+        width="100%"
+        height="350"
+        style="border:0;"
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=54.236031,9.771575&hl=de&z=15&output=embed">
+      </iframe>
+    </div>
+
+    <!-- Externer Maps Button -->
+    <div class="button-row" style="margin-top:20px;">
+      <a href="https://www.google.com/maps?q=54.236031,9.771575"
+         target="_blank"
+         rel="noopener"
+         class="btn-main">
+         📍 In Google Maps öffnen
+      </a>
+    </div>
+
+  </div>
+
+  <div class="button-row">
+    <button class="btn-main" data-goto="danke">Anmeldung abschließen</button>
+    <button class="btn-main" data-goto="ablauf">Zurück zu den Festivaldaten</button>
+  </div>
+
+</section>
 
       <!-- VIEW 5: DANKE -->
       <section data-view="danke">
