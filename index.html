@@ -353,32 +353,44 @@
       </section>
 
       <!-- VIEW 2: RSVP -->
-      <section data-view="rsvp">
-        <h1>Wir freuen uns auf euch!</h1>
-        <h2>Bitte gebt uns Bescheid, ob ihr dabei sein könnt.</h2>
+     <!-- VIEW 2: RSVP -->
+<section data-view="rsvp">
+  <h1>Wir freuen uns auf euch!</h1>
+  <h2>Bitte gebt uns Bescheid, ob ihr dabei sein könnt.</h2>
 
-        <form id="rsvp-form" action="https://formspree.io/f/mkgkroqo" method="POST" style="margin-top:24px; text-align:left;">
-          <label>
-            Name :
-            <input type="text" name="name" placeholder="Vor- und Nachname" required>
-          </label>
+  <form id="rsvp-form" action="https://formspree.io/f/mkgkroqo" method="POST" style="margin-top:24px; text-align:left;">
+    
+    <label>
+      Name:
+      <input type="text" name="name" placeholder="Vor- und Nachname" required>
+    </label>
 
-          <h3>🏕 Ich komme:</h3>
-          <div class="radio-group"><label><input type="radio" name="unterkunft" value="mit Zelt" required> mit Zelt</label></div>
-          <div class="radio-group"><label><input type="radio" name="unterkunft" value="mit Camper"> mit Camper</label></div>
-          <div class="radio-group"><label><input type="radio" name="unterkunft" value="bei jemandem"> und habe einen Schlafplatz mit bei jemandem</label></div>
-          <div class="radio-group"><label><input type="radio" name="unterkunft" value="nicht dabei"> leider gar nicht</label></div>
+    <h3>Ich komme:</h3>
 
-          <div class="button-row">
-            <button type="submit" class="btn-main">Senden</button>
-            <button type="button" class="btn-main" data-goto="ablauf">Weiter zum Ablauf</button>
-          </div>
+    <div class="radio-group">
+      <label>
+        <input type="radio" name="zusage" value="Ja" required>
+        Ja, ich bin dabei
+      </label>
+    </div>
 
-          <p id="form-status" class="status-text"></p>
-        </form>
+    <div class="radio-group">
+      <label>
+        <input type="radio" name="zusage" value="Nein">
+        Leider nicht
+      </label>
+    </div>
 
-        <button class="btn-ghost" data-goto="invitation">← Zurück zur Einladung</button>
-      </section>
+    <div class="button-row">
+      <button type="submit" class="btn-main">Senden</button>
+      <button type="button" class="btn-main" data-goto="ablauf">Weiter zum Ablauf</button>
+    </div>
+
+    <p id="form-status" class="status-text"></p>
+  </form>
+
+  <button class="btn-ghost" data-goto="invitation">← Zurück zur Einladung</button>
+</section>
 
       <!-- VIEW 3: ABLAUF -->
       <section data-view="ablauf">
