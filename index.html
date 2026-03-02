@@ -352,51 +352,41 @@
         </button>
       </section>
 
+      <!-- VIEW 2: RSVP -->
      <!-- VIEW 2: RSVP -->
 <section data-view="rsvp">
   <h1>Wir freuen uns auf euch!</h1>
   <h2>Bitte gebt uns Bescheid, ob ihr dabei sein könnt.</h2>
 
-  <form 
-    action="https://formspree.io/f/mreawqlp"
-    method="POST"
-    style="margin-top:24px; text-align:left;"
-  >
-
+  <form id="rsvp-form" action="https://formspree.io/f/mkgkroqo" method="POST" style="margin-top:24px; text-align:left;">
+    
     <label>
       Name:
-      <input type="text" name="Name" placeholder="Vor- und Nachname" required>
-    </label>
-
-    <label>
-      E-Mail (optional):
-      <input type="email" name="Email" placeholder="deine@email.de">
+      <input type="text" name="name" placeholder="Vor- und Nachname" required>
     </label>
 
     <h3>Ich komme:</h3>
 
     <div class="radio-group">
       <label>
-        <input type="radio" name="Zusage" value="Ja, ich bin dabei" required>
+        <input type="radio" name="zusage" value="Ja" required>
         Ja, ich bin dabei
       </label>
     </div>
 
     <div class="radio-group">
       <label>
-        <input type="radio" name="Zusage" value="Leider nicht">
+        <input type="radio" name="zusage" value="Nein">
         Leider nicht
       </label>
     </div>
-
-    <!-- Betreff deiner E-Mail -->
-    <input type="hidden" name="_subject" value="Neue Hochzeits-Rückmeldung 💛">
 
     <div class="button-row">
       <button type="submit" class="btn-main">Senden</button>
       <button type="button" class="btn-main" data-goto="ablauf">Weiter zum Ablauf</button>
     </div>
 
+    <p id="form-status" class="status-text"></p>
   </form>
 
   <button class="btn-ghost" data-goto="invitation">← Zurück zur Einladung</button>
@@ -426,39 +416,20 @@
         </div>
       </section>
 
-     <!-- VIEW 4: MAP -->
-<section data-view="festivalmap">
-  <h1>Festivalmap</h1>
-  <h2>So findet ihr die Location</h2>
+      <!-- VIEW 4: MAP -->
+      <section data-view="festivalmap">
+        <h1>Festivalmap</h1>
+        <h2>Hier findet ihr später Lageplan & Bereiche</h2>
 
-  <!-- Klickbare Karte -->
-  <a
-    href="https://www.google.com/maps/search/?api=1&query=54.236031,9.771575"
-    target="_blank"
-    rel="noopener"
-    style="display:block; margin-top:20px; border-radius:18px; overflow:hidden; border:1px solid rgba(255,215,160,0.45); box-shadow:0 12px 25px rgba(0,0,0,0.35);"
-    aria-label="In Google Maps öffnen"
-  >
-    <iframe
-      width="100%"
-      height="260"
-      style="border:0; display:block;"
-      loading="lazy"
-      src="https://www.openstreetmap.org/export/embed.html?bbox=9.761575%2C54.231031%2C9.781575%2C54.241031&layer=mapnik&marker=54.236031%2C9.771575"
-    ></iframe>
-  </a>
+        <p style="margin-top:20px;">
+          Campingbereich, Dancefloor, Food-Area, Chillout-Zone und mehr – die Map folgt noch.
+        </p>
 
-  <p style="margin-top:14px; font-size:14px; opacity:0.9;">
-    📍 54.236031, 9.771575  
-    <br>
-    Tipp: Klick auf die Karte öffnet Google Maps mit Route.
-  </p>
-
-  <div class="button-row">
-    <button class="btn-main" data-goto="danke">Anmeldung abschließen</button>
-    <button class="btn-main" data-goto="ablauf">Zurück zu den Festivaldaten</button>
-  </div>
-</section>
+        <div class="button-row">
+          <button class="btn-main" data-goto="danke">Anmeldung abschließen</button>
+          <button class="btn-main" data-goto="ablauf">Zurück zu den Festivaldaten</button>
+        </div>
+      </section>
 
       <!-- VIEW 5: DANKE -->
       <section data-view="danke">
@@ -501,4 +472,3 @@
 
 </body>
 </html>
-
