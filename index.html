@@ -416,33 +416,44 @@
         </div>
       </section>
 
-      <!-- VIEW 4: MAP -->
-  <!-- VIEW 4: MAP -->
+     <!-- VIEW 4: MAP -->
 <section data-view="festivalmap">
   <h1>Festivalmap</h1>
   <h2>So findet ihr die Location</h2>
 
-  <!-- Klickbare Karte -->
-  <a
-    href="https://www.google.com/maps/search/?api=1&query=54.236031,9.771575"
-    target="_blank"
-    rel="noopener"
-    style="display:block; margin-top:20px; border-radius:18px; overflow:hidden; border:1px solid rgba(255,215,160,0.45); box-shadow:0 12px 25px rgba(0,0,0,0.35);"
-    aria-label="In Google Maps öffnen"
+  <!-- Karte mit klickbarem Overlay -->
+  <div
+    style="position:relative; margin-top:20px; border-radius:18px; overflow:hidden; border:1px solid rgba(255,215,160,0.45); box-shadow:0 12px 25px rgba(0,0,0,0.35);"
   >
     <iframe
       width="100%"
       height="260"
-      style="border:0; display:block;"
+      style="border:0; display:block; pointer-events:none;"
       loading="lazy"
       src="https://www.openstreetmap.org/export/embed.html?bbox=9.761575%2C54.231031%2C9.781575%2C54.241031&layer=mapnik&marker=54.236031%2C9.771575"
     ></iframe>
-  </a>
+
+    <!-- Klickfläche -->
+    <a
+      href="https://www.google.com/maps/search/?api=1&query=54.236031,9.771575"
+      target="_blank"
+      rel="noopener"
+      aria-label="In Google Maps öffnen"
+      style="position:absolute; inset:0; display:block;"
+    ></a>
+
+    <!-- Hinweis -->
+    <div
+      style="position:absolute; left:12px; bottom:12px; background:rgba(33,6,12,0.75); color:rgba(240,234,214,0.95); padding:8px 12px; border-radius:999px; font-size:13px; border:1px solid rgba(255,215,160,0.35); backdrop-filter: blur(6px);"
+    >
+      📍 Karte öffnen →
+    </div>
+  </div>
 
   <p style="margin-top:14px; font-size:14px; opacity:0.9;">
-    📍 54.236031, 9.771575  
+    54.236031, 9.771575  
     <br>
-    Tipp: Klick auf die Karte öffnet Google Maps mit Route.
+    Tipp: Klick auf die Karte öffnet Google Maps mit Navigation.
   </p>
 
   <div class="button-row">
